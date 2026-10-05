@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
+# Generated reports
+reports/
+security-report_*.txt
+
+# Local analyzer backups
+security_analyzer_v*.py
+
+# Credentials and secrets
+*.pem
+*.key
+.env
