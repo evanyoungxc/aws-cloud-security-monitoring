@@ -1,52 +1,67 @@
 # AWS Cloud Security Monitoring
 
-A hands-on AWS security monitoring project focused on collecting and analyzing cloud, host, and network telemetry.
+A hands-on AWS security monitoring lab built to collect, detect, and investigate activity across cloud, host, and network layers.
 
-The environment uses AWS CloudTrail, CloudWatch, VPC Flow Logs, and an Ubuntu EC2 monitoring instance to provide visibility across multiple layers of an AWS environment.
+The project uses CloudTrail, CloudWatch, VPC Flow Logs, EC2 telemetry, and a Python/Boto3 analyzer to turn AWS activity into useful security data.
 
-## Current Architecture
+## Architecture
 
 - AWS CloudTrail for API and account activity
 - CloudWatch Logs for centralized log collection
-- CloudWatch metric filters and alarms for security detections
-- Ubuntu EC2 instance for host-level monitoring
-- CloudWatch Agent for system and authentication logs
+- CloudWatch metric filters and alarms for detections
+- Ubuntu EC2 instance for host monitoring
+- CloudWatch Agent for authentication and system logs
 - VPC Flow Logs for network traffic visibility
-- CloudWatch Logs Insights for log investigation
+- CloudWatch Logs Insights for investigation
 
-## Current Detections
+## Security Detections
 
-The environment currently monitors for:
+Current detections include:
 
 - IAM security-related changes
 - Security group changes
 - Failed SSH authentication attempts
 
-These events are converted into CloudWatch metrics and used to trigger alarms when security-relevant activity is detected.
+CloudWatch metric filters convert these events into security metrics and trigger alarms when matching activity occurs.
 
-## Host Monitoring
+## Host and Network Monitoring
 
-A dedicated Ubuntu EC2 instance sends host telemetry to CloudWatch using the CloudWatch Agent, including:
+A dedicated Ubuntu EC2 instance sends authentication logs, system logs, and host metrics to CloudWatch.
 
-- Authentication logs
-- System logs
-- Host performance metrics
+VPC Flow Logs provide network-level visibility into accepted and rejected connections, allowing activity seen on the host to be compared with traffic observed at the VPC layer.
 
-SSH access is configured to require both public-key and password authentication.
+## Python Security Analyzer
 
-## Network Monitoring
+`scripts/security_analyzer.py` automates SSH investigation using Python and Boto3.
 
-VPC Flow Logs collect network metadata across the lab VPC, including accepted and rejected connections.
+The analyzer:
 
-CloudWatch Logs Insights is used to investigate traffic patterns such as rejected connection attempts and targeted destination ports.
+- Collects SSH authentication events from CloudWatch
+- Queries VPC Flow Logs for SSH traffic
+- Correlates activity by source IP
+- Separates accepted and rejected connections
+- Identifies failed and successful authentication
+- Ranks sources generating rejected SSH traffic
+- Generates timestamped security reports
+
+The script supports configurable AWS region, log groups, monitored IP, and analysis window through environment variables.
+
+## Example Analysis
+
+A recent analysis window identified:
+
+- 906 rejected SSH flows
+- 482 unique rejected source IPs
+- 21 accepted SSH flows
+
+The analyzer then correlated allowed network traffic with authentication activity to distinguish legitimate access from unsolicited connection attempts.
 
 ## Project Status
 
-The monitoring and log collection infrastructure is operational.
+The core monitoring pipeline and automated analyzer are operational.
 
-Planned next steps include:
+Next steps:
 
-- Correlating VPC Flow Logs with host authentication events
-- Building repeatable CloudWatch Logs Insights investigations
-- Automating security analysis with Python and Boto3
-- Documenting controlled security events and investigations
+- Document controlled detection tests
+- Add investigation screenshots and sample reports
+- Expand correlation and detection logic
