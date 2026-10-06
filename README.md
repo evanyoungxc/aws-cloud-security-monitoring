@@ -4,6 +4,12 @@ A hands-on AWS security monitoring lab built to collect, detect, and investigate
 
 The project uses CloudTrail, CloudWatch, VPC Flow Logs, EC2 telemetry, and a Python/Boto3 analyzer to turn AWS activity into useful security data.
 
+## Security Dashboard
+
+![AWS Security Monitoring Dashboard](images/dashboard.png)
+
+The CloudWatch dashboard provides a central view of security alarms, SSH authentication activity, control-plane events, rejected source IPs, and targeted ports.
+
 ## Architecture
 
 - AWS CloudTrail for API and account activity
@@ -63,5 +69,5 @@ The core monitoring pipeline and automated analyzer are operational.
 Next steps:
 
 - Document controlled detection tests
-- Add investigation screenshots and sample reports
+- Document additional security investigations
 - Expand correlation and detection logic
