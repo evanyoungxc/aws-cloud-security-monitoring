@@ -1,0 +1,35 @@
+=== AWS SECURITY MONITORING REPORT ===
+
+SSH Authentication Summary
+--------------------------
+Failed passwords:        1
+Accepted passwords:      5
+Accepted public keys:    2
+
+Network Security Summary
+------------------------
+Accepted SSH flows:      21
+Rejected SSH flows:      906
+Unique rejected sources: 482
+
+Top 10 Rejected SSH Sources
+---------------------------
+Source IP           Rejected Flows
+-----------------------------------
+[REDACTED-01]       29
+[REDACTED-02]       26
+[REDACTED-03]       17
+[REDACTED-04]       13
+[REDACTED-05]       13
+[REDACTED-06]       13
+[REDACTED-07]       12
+[REDACTED-08]       11
+[REDACTED-09]       11
+[REDACTED-10]       11
+
+Authenticated / Allowed Sources
+-------------------------------
+Source IP           ACCEPT   REJECT   Failed   Password   PublicKey
+------------------------------------------------------------------
+[REDACTED-CLIENT-1] 20       2        1        4          2
+[REDACTED-CLIENT-2] 1        0        0        1          0
