@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWS Security Monitoring | EYoung Cyber</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    border-bottom: 1px solid #30363d;
+    background: #161b22;
+}
+
+nav {
+    max-width: 1100px;
+    margin: auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    color: #f0f6fc;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.brand span {
+    color: #3fb950;
+    margin-right: 8px;
+}
+
+.nav-links a {
+    color: #8b949e;
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #f0f6fc;
+}
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 70px 24px;
+}
+
+.hero {
+    margin-bottom: 65px;
+}
+
+.eyebrow {
+    color: #58a6ff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: #f0f6fc;
+    font-size: 46px;
+    margin: 8px 0 14px;
+    line-height: 1.15;
+}
+
+.hero p {
+    max-width: 720px;
+    color: #8b949e;
+    font-size: 18px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.tag {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 13px;
+    color: #c9d1d9;
+}
+
+section {
+    margin-bottom: 65px;
+}
+
+h2 {
+    color: #f0f6fc;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+p {
+    color: #8b949e;
+}
+
+.architecture {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    color: #c9d1d9;
+    font-family: monospace;
+    font-size: 15px;
+    overflow-x: auto;
+}
+
+.screenshot {
+    width: 100%;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.card h3 {
+    color: #f0f6fc;
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.card p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.validation {
+    border-left: 3px solid #3fb950;
+    background: #161b22;
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+}
+
+.validation code {
+    color: #3fb950;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.button {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    color: #f0f6fc;
+    text-decoration: none;
+    background: #21262d;
+}
+
+.button:hover {
+    border-color: #58a6ff;
+}
+
+footer {
+    border-top: 1px solid #30363d;
+    padding: 25px;
+    text-align: center;
+    color: #6e7681;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links a {
+        margin-left: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+    <div class="brand"><span>&gt;_</span>EYoung Cyber</div>
+
+    <div class="nav-links">
+        <a href="https://eyoungcyber.com">Home</a>
+        <a href="https://honeypot.eyoungcyber.com">Honeypot</a>
+        <a href="https://github.com/evanyoungxc/aws-cloud-security-monitoring">GitHub</a>
+    </div>
+</nav>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="eyebrow">Cloud Security Project</div>
+
+    <h1>AWS Security Monitoring</h1>
+
+    <p>
+        A cloud security monitoring environment built to collect, detect,
+        and investigate security activity across AWS and Linux infrastructure.
+    </p>
+
+    <div class="tags">
+        <span class="tag">AWS</span>
+        <span class="tag">CloudWatch</span>
+        <span class="tag">CloudTrail</span>
+        <span class="tag">VPC Flow Logs</span>
+        <span class="tag">Python</span>
+        <span class="tag">EC2</span>
+    </div>
+</section>
+
+<section>
+    <h2>Overview</h2>
+
+    <p>
+        I built this project to create centralized visibility into AWS control-plane
+        activity, EC2 authentication events, and network traffic. CloudWatch collects
+        the telemetry while metric filters and alarms detect specific security events.
+        A Python analyzer provides an additional layer for investigating authentication
+        and VPC Flow Log activity.
+    </p>
+</section>
+
+<section>
+    <h2>Architecture</h2>
+
+    <div class="architecture">
+        CloudTrail + EC2 Logs + VPC Flow Logs → CloudWatch → Metrics &amp; Alarms → Dashboard → Python Analysis
+    </div>
+</section>
+
+<section>
+    <h2>Security Dashboard</h2>
+
+    <p>
+        The CloudWatch dashboard provides a central view of authentication alerts,
+        AWS control-plane events, rejected network traffic, source IPs, and targeted ports.
+    </p>
+
+    <img class="screenshot" src="images/monitoring-dashboard.png" alt="AWS Security Monitoring CloudWatch Dashboard">
+</section>
+
+<section>
+    <h2>Detections</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Failed SSH Authentication</h3>
+            <p>Detects failed SSH password authentication events collected from the monitoring EC2 instance.</p>
+        </div>
+
+        <div class="card">
+            <h3>AWS Control Plane</h3>
+            <p>Monitors CloudTrail activity for security-relevant IAM and infrastructure changes.</p>
+        </div>
+
+        <div class="card">
+            <h3>Network Rejections</h3>
+            <p>Uses VPC Flow Logs to identify rejected traffic and frequently observed source addresses.</p>
+        </div>
+
+        <div class="card">
+            <h3>Targeted Ports</h3>
+            <p>Tracks destination ports receiving rejected traffic to provide additional network context.</p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>Security Analyzer</h2>
+
+    <p>
+        I wrote a Python analyzer to query authentication logs and VPC Flow Logs,
+        summarize failed and successful SSH activity, identify rejected sources,
+        and correlate authenticated hosts with network traffic.
+    </p>
+
+    <img class="screenshot" src="images/report.png" alt="AWS Security Monitoring Analyzer Report">
+</section>
+
+<section>
+    <h2>End-to-End Validation</h2>
+
+    <p>
+        The monitoring pipeline was tested from event generation through detection
+        and analysis to verify that each layer was receiving the expected telemetry.
+    </p>
+
+    <div class="validation">
+        <code>Test Event → auth.log → CloudWatch Agent → CloudWatch Logs → Metric Filter → Alarm → Dashboard → Analyzer</code>
+    </div>
+
+    <div class="buttons">
+        <a class="button" href="https://github.com/evanyoungxc/aws-cloud-security-monitoring">View on GitHub</a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    AWS Security Monitoring · EYoung Cyber
+</footer>
+
+</body>
+</html>
